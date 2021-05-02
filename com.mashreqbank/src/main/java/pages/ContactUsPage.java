@@ -32,6 +32,8 @@ public class ContactUsPage {
 	WebElement emailField;
 	@FindBy(how=How.ID, using="mobile")
 	WebElement mobileField;
+	@FindBy(how=How.XPATH, using="(//span[@class='Input_helperText__1gh53'])[4]")
+	WebElement mobileFieldErrorMSG;
 	@FindBy(how=How.XPATH, using="//input[@type='text'and @name='emirate']")
 	WebElement selectEmirate;
 	@FindBy(how=How.XPATH, using="(//div[@class='InputSelect_dropdown__3i6yF']//ul)[1]/li")
@@ -98,16 +100,8 @@ public class ContactUsPage {
 	{
 		mobileField.sendKeys(mobile);
 	}
-	public void clickRecaptchaBox()
+	public String getMobileNumberErrorMessage()
 	{
-		WebDriverWait wait= new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.elementToBeClickable(recaptchabox));
-		JavascriptExecutor js=(JavascriptExecutor)driver;
-		js.executeScript("arguments[0].scrollIntoView();", recaptchabox);
-		Actions act=new Actions(driver);
-		act.moveToElement(recaptchabox).click().build().perform();
-		recaptchabox.click();
+		return mobileFieldErrorMSG.getText();
 	}
-	
-	
 }

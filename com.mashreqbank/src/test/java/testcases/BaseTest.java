@@ -28,7 +28,7 @@ public HomePage homepage;
 	{
 		driver.get("https://www.mashreqbank.com/uae/en/sme/home");
 	}
-	
+	@AfterClass
 	public void closeBrowser()
 	{
 		driver.quit();

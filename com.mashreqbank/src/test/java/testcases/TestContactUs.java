@@ -14,7 +14,7 @@ public class TestContactUs extends BaseTest{
 		contactuspage.setFirstname("Peter");
 		contactuspage.setLastName("adebayo");
 		contactuspage.setEmail("piro@yaho.com");
-		contactuspage.setMobileNumber("0508266262");
+		contactuspage.setMobileNumber("4");
 		assertEquals(contactuspage.getEmirateSize(), 4);
 		contactuspage.selectYourEmirate("Aj");
 		assertEquals(contactuspage.getSelectedEmirate(), "Ajman");
@@ -23,7 +23,8 @@ public class TestContactUs extends BaseTest{
 		contactuspage.selectContactReason("In");
 		assertEquals(contactuspage.getSelectedReason(), "Inquiry");
 		assertEquals(contactuspage.getCategorySize(), 5);
-		contactuspage.clickRecaptchaBox();
+		assertEquals(contactuspage.getMobileNumberErrorMessage(), "Accept only numbers");
+		
 	
 		
 		
